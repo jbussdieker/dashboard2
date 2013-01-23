@@ -1,6 +1,10 @@
 <h1><%= @node.name %></h1>
+<p>
+  <%= link_to "Back", nodes_path, :class => "btn" %>
+</p>
+
 <h2>Parameters</h2>
-<table>
+<table class="table">
   <tr>
     <th>Key</th>
     <th>Value</th>
@@ -15,12 +19,23 @@
     <% end %>
   <% end %>
 </table>
+
 <h2>Classes</h2>
-<%= @node.classes.collect {|v|v.name} %><br>
+<ul>
+  <% @node.classes.each do |node_class| %>
+    <li><%= link_to node_class.name, node_class_path(node_class) %></li>
+  <% end %>
+</ul>
+
 <h2>Groups</h2>
-<%= @node.groups.collect {|v|v.name} %><br>
+<ul>
+  <% @node.groups.each do |group| %>
+    <li><%= link_to group.name, node_group_path(group) %></li>
+  <% end %>
+</ul>
+
 <h2>Reports</h2>
-<table>
+<table class="table">
   <tr>
     <th>Time</th>
     <th>Status</th>

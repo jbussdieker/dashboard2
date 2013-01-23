@@ -1,5 +1,9 @@
 <h1><%= @node_group.name %></h1>
-<table>
+<p>
+  <%= link_to "Back", node_groups_path, :class => "btn" %>
+</p>
+<h2>Parameters</h2>
+<table class="table">
   <tr>
     <th>Key</th>
     <th>Value</th>
@@ -8,6 +12,19 @@
     <tr>
       <td><%= parameter.key %></td>
       <td><%= parameter.value %></td>
+    </tr>
+  <% end %>
+</table>
+<h2>Nodes</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+  <% @node_group.nodes.each do |node| %>
+    <tr>
+      <td><%= link_to node.name, node_path(node) %></td>
+      <td><%= node.status %></td>
     </tr>
   <% end %>
 </table>

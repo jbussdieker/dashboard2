@@ -1,4 +1,17 @@
 <h1><%= @node_class.name %></h1>
-<% @node_class.nodes.each do |node| %>
-  <%= node.name %><br>
-<% end %>
+<p>
+  <%= link_to "Back", node_classes_path, :class => "btn" %>
+</p>
+<h2>Nodes</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+  <% @node_class.nodes.each do |node| %>
+    <tr>
+      <td><%= link_to node.name, node_path(node) %></td>
+      <td><%= node.status %></td>
+    </tr>
+  <% end %>
+</table>
