@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+  <% @nodes.each do |node| %>
+    <tr>
+      <td><%= link_to node.name, node_path(node) %></td>
+      <td><%= node.status %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Nodes</th>
+  </tr>
+  <% @node_groups.each do |node_group| %>
+    <tr>
+      <td><%= link_to node_group.name, node_group_path(node_group) %></td>
+      <td><%= node_group.nodes.count %></td>
+    </tr>
+  <% end %>
+</table>

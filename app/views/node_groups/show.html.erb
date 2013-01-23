@@ -1,0 +1,13 @@
+<h1><%= @node_group.name %></h1>
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+  <% @node_group.parameters.each do |parameter| %>
+    <tr>
+      <td><%= parameter.key %></td>
+      <td><%= parameter.value %></td>
+    </tr>
+  <% end %>
+</table>
